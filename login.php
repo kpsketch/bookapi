@@ -35,7 +35,7 @@ if (empty($email) || empty($password)) {
 $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+if ($result && $result->num_rows > 0) {
     $user = $result->fetch_assoc();
 
     echo json_encode([
